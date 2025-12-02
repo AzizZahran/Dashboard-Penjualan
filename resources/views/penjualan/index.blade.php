@@ -5,18 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard Penjualan</title>
 
-    <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body class="bg-gray-100 p-6">
 
     <div class="max-w-6xl mx-auto">
-
-        <!-- Title -->
         <a href="{{ route('penjualan.index') }}" 
            class="text-3xl font-bold mb-6 block hover:text-blue-600">
             Dashboard Penjualan
@@ -28,7 +24,6 @@
             </div>
         @endif
 
-        <!-- Filter -->
         <div class="bg-white shadow rounded-lg p-4 mb-6">
             <h3 class="text-lg font-semibold mb-2">Filter Tanggal</h3>
 
@@ -55,7 +50,6 @@
             </form>
         </div>
 
-        <!-- Import CSV -->
         <div class="bg-white shadow rounded-lg p-4 mb-6">
             <h3 class="text-lg font-semibold mb-2">Import Data Penjualan (CSV)</h3>
 
@@ -75,7 +69,6 @@
             </form>
         </div>
 
-        <!-- Total Penjualan -->
         <div class="bg-white shadow rounded-lg p-4 mb-6">
             <h3 class="text-lg font-semibold">Total Penjualan</h3>
             <p class="text-3xl font-bold text-blue-600">
@@ -83,19 +76,16 @@
             </p>
         </div>
 
-        <!-- Bar Chart -->
         <div class="bg-white shadow rounded-lg p-6 mb-6">
             <h2 class="text-xl font-semibold mb-4">Grafik Total Penjualan (Bar Chart)</h2>
             <canvas id="barChart"></canvas>
         </div>
 
-        <!-- Area Chart -->
         <div class="bg-white shadow rounded-lg p-6 mb-6">
             <h2 class="text-xl font-semibold mb-4">Tren Penjualan (Area Chart)</h2>
             <canvas id="areaChart"></canvas>
         </div>
 
-        <!-- Table -->
         <div class="bg-white shadow rounded-lg p-6">
             <h2 class="text-xl font-semibold mb-4">Daftar Penjualan</h2>
 
@@ -131,7 +121,6 @@
         const labels = {!! json_encode($chartLabels) !!};
         const values = {!! json_encode($chartValues) !!};
 
-        /** BAR CHART */
         new Chart(document.getElementById('barChart'), {
             type: 'bar',
             data: {
@@ -147,7 +136,6 @@
             options: { responsive: true }
         });
 
-        /** AREA CHART */
         new Chart(document.getElementById('areaChart'), {
             type: 'line',
             data: {

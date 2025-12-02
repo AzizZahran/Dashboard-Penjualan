@@ -54,10 +54,8 @@ class PenjualanController extends Controller
             $row = array_map('trim', $row);
             $data = array_combine($header, $row);
 
-            // basic validation
             if (empty($data['nama_produk']) || empty($data['tanggal_penjualan'])) continue;
 
-            // normalize and create
             Penjualan::create([
                 'nama_produk' => $data['nama_produk'],
                 'tanggal_penjualan' => Carbon::parse($data['tanggal_penjualan'])->format('Y-m-d'),
